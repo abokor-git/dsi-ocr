@@ -1,4 +1,5 @@
-python-doctr[torch]
+python-doctr
+#python-doctr[torch]
 fastapi
 gradio
 numpy

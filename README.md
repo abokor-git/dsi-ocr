@@ -14,9 +14,10 @@ docker build -t nom-de-l-image .
 
 Vous pouvez ensuite exécuter l'image Docker en utilisant la commande suivante :
 
-arduino
-Copy code
+```
 docker run -p 8000:8000 nom-de-l-image
+```
+
 L'application sera alors accessible à l'adresse http://localhost:8000/gradio dans votre navigateur.
 
 # Documentation

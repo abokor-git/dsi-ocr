@@ -8,11 +8,10 @@ L'API accepte une ou deux images au format PNG, JPEG ou BMP. Pour utiliser l'API
 
 Pour exécuter l'application, vous pouvez utiliser Docker ou exécuter le script Python api.py directement sur votre machine. Si vous utilisez Docker, vous pouvez créer l'image Docker en exécutant la commande suivante à partir du répertoire racine du projet :
 
-arduino
-Copy code
-'''
+'''''
 docker build -t nom-de-l-image .
-'''
+'''''
+
 Vous pouvez ensuite exécuter l'image Docker en utilisant la commande suivante :
 
 arduino

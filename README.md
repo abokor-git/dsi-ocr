@@ -22,7 +22,72 @@ L'application sera alors accessible à l'adresse http://localhost:8000/gradio da
 
 # Documentation
 
-Pour plus d'informations sur les formats d'images pris en charge et les paramètres acceptés, veuillez vous référer à la documentation de l'API qui se trouve à l'adresse http://localhost:8000/docs.
+L'API de reconnaissance optique de caractères (OCR) est accessible via l'URL http://localhost:8000/gradio. Elle accepte les requêtes HTTP POST avec les images au format PNG, JPEG ou BMP.
+
+## Exemple de requête
+
+```
+POST /run/predict
+http://localhost:8000/gradio/run/predict
+```
+
+## Payload d'entrée
+
+Le payload d'entrée doit être un objet JSON avec une clé "data" contenant un tableau de deux éléments représentant les images d'entrée :
+
+```
+{
+  "data": [
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==", 
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+  ]
+}
+```
+
+La première image correspond à la première page d'un document et la deuxième image correspond à la deuxième page du même document. Les images sont encodées en base64.
+
+## Exemple de payload d'entrée
+
+```
+{
+  "data": [
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==", 
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+  ]
+}
+```
+
+## Exemple de réponse
+
+La réponse renvoie un objet JSON contenant un tableau de deux éléments, qui représentent les résultats de la reconnaissance de caractères pour chaque image :
+
+```
+{
+  "data": [
+    "Hello, world!", 
+    "This is the second page."
+  ],
+  "duration": 2.5
+}
+```
+
+La clé "duration" représente le temps de traitement en secondes.
+
+# Utilisation de l'API
+
+Vous pouvez tester l'API en envoyant une requête POST avec des images encodées en base64. Vous pouvez utiliser des outils comme cURL ou Postman pour tester l'API.
+
+```
+curl -X POST \
+  http://localhost:8000/gradio/run/predict \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "data": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==", 
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+    ]
+}'
+```
 
 # Contact
 

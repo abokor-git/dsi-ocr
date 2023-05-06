@@ -1,4 +1,5 @@
 # dis-ocr
+# <p align="center">Mon titre centré</p>
 # Application de reconnaissance optique de caractères (OCR)
 
 Cette application est une API qui permet de détecter du texte dans des images en utilisant un modèle de machine learning entraîné pour cette tâche. Elle est basée sur la bibliothèque FastAPI et l'interface utilisateur Gradio pour une utilisation facile et intuitive.

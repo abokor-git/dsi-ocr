@@ -1,8 +1,6 @@
-# dis-ocr
-# <p align="center">Mon titre centré</p>
-# Application de reconnaissance optique de caractères (OCR)
+# <p align="center">Direction System d'Information (DSI) - Application de reconnaissance optique de caractères (OCR) </p>
 
-Cette application est une API qui permet de détecter du texte dans des images en utilisant un modèle de machine learning entraîné pour cette tâche. Elle est basée sur la bibliothèque FastAPI et l'interface utilisateur Gradio pour une utilisation facile et intuitive.
+Cette application est une API qui permet de détecter du texte dans des images en utilisant un modèle de machine learning entraîné pour cette tâche. Elle est basée sur la bibliothèque DocTr, FastAPI et l'interface utilisateur Gradio pour une utilisation facile et intuitive.
 
 # Utilisation
 
@@ -12,7 +10,7 @@ Pour exécuter l'application, vous pouvez utiliser Docker ou exécuter le script
 
 arduino
 Copy code
-docker build -t nom-de-l-image .
+'docker build -t nom-de-l-image .'
 Vous pouvez ensuite exécuter l'image Docker en utilisant la commande suivante :
 
 arduino

@@ -1,7 +1,7 @@
 import os
 # Let's pick the desired backend
 # os.environ['USE_TF'] = '1'
-os.environ['USE_TORCH'] = '1'
+#os.environ['USE_TORCH'] = '1'
 
 import sys
 

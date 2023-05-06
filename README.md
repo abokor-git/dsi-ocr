@@ -10,7 +10,9 @@ Pour exécuter l'application, vous pouvez utiliser Docker ou exécuter le script
 
 arduino
 Copy code
-'docker build -t nom-de-l-image .'
+'''
+docker build -t nom-de-l-image .
+'''
 Vous pouvez ensuite exécuter l'image Docker en utilisant la commande suivante :
 
 arduino

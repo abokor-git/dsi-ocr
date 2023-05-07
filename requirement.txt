@@ -1,5 +1,6 @@
 python-doctr[torch]
 weasyprint
+rapidfuzz
 fastapi
 gradio
 numpy

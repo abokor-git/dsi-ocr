@@ -1,4 +1,5 @@
 python-doctr[torch]
+weasyprint
 fastapi
 gradio
 numpy

@@ -2,5 +2,5 @@ python-doctr[torch]
 weasyprint
 rapidfuzz
 fastapi
-gradio
+gradio==3.28.3
 numpy

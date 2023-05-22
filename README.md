@@ -4,7 +4,7 @@ Cette application est une API qui permet de détecter du texte dans des images e
 
 # Utilisation
 
-L'API accepte une ou deux images au format PNG, JPEG ou BMP. Pour utiliser l'API, envoyez une requête avec les images et l'API renverra le texte détecté dans chaque image sous forme d'une réponse JSON.
+L'API accepte une image au format PNG, JPEG ou BMP. Pour utiliser l'API, envoyez une requête avec l'image et l'API renverra le texte détecté dans l'image sous forme d'une réponse JSON.
 
 Pour exécuter l'application, vous pouvez utiliser Docker ou exécuter le script Python api.py directement sur votre machine. Si vous utilisez Docker, vous pouvez créer l'image Docker en exécutant la commande suivante à partir du répertoire racine du projet :
 
@@ -16,6 +16,12 @@ Vous pouvez ensuite exécuter l'image Docker en utilisant la commande suivante :
 
 ```
 docker run -p 8000:8000 nom-de-l-image
+```
+
+Ou directement utiliser l'image disponible sur le hub docker :
+
+```
+docker run -p 8000:8000 abokor16/dsi-ocr:3.0
 ```
 
 L'application sera alors accessible à l'adresse http://localhost:8000/gradio dans votre navigateur.
@@ -33,39 +39,49 @@ http://localhost:8000/gradio/run/predict
 
 ## Payload d'entrée
 
-Le payload d'entrée doit être un objet JSON avec une clé "data" contenant un tableau de deux éléments représentant les images d'entrée :
+Le payload d'entrée doit être un objet JSON avec une clé "data" contenant un tableau d'éléments représentant l'images d'entrée :
 
 ```
 {
   "data": [
     "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==", 
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
   ]
 }
 ```
 
-La première image correspond à la première page d'un document et la deuxième image correspond à la deuxième page du même document. Les images sont encodées en base64.
+Les images sont encodées en base64.
 
 ## Exemple de payload d'entrée
 
 ```
 {
   "data": [
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==", 
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==",
   ]
 }
 ```
 
 ## Exemple de réponse
 
-La réponse renvoie un objet JSON contenant un tableau de deux éléments, qui représentent les résultats de la reconnaissance de caractères pour chaque image :
+La réponse renvoie un objet JSON contenant un tableau d'élément, qui représentent le résultat de la reconnaissance de caractères pour l'image en question :
 
 ```
 {
   "data": [
-    "Hello, world!", 
-    "This is the second page."
+    {
+        "id_document": "",
+        "prenom": "",
+        "nom": "",
+        "ne": "",
+        "a": "",
+        "father": "",
+        "mother": "",
+        "profession": "",
+        "domicile": "",
+        "type_document": "",
+        "date_delivrance": "",
+        "date_expiration": "",
+    }
   ],
   "duration": 2.5
 }
@@ -75,7 +91,7 @@ La clé "duration" représente le temps de traitement en secondes.
 
 # Utilisation de l'API
 
-Vous pouvez tester l'API en envoyant une requête POST avec des images encodées en base64. Vous pouvez utiliser des outils comme cURL ou Postman pour tester l'API.
+Vous pouvez tester l'API en envoyant une requête POST avec une image encodée en base64. Vous pouvez utiliser des outils comme cURL ou Postman pour tester l'API.
 
 ```
 curl -X POST \
@@ -84,7 +100,6 @@ curl -X POST \
   -d '{
     "data": [
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==", 
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
     ]
 }'
 ```

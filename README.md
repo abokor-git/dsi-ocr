@@ -10,6 +10,13 @@ Cette application est une API qui permet de détecter du texte dans des images e
 
 > Note : Dans un futur proche, nous prévoyons d'ajouter la prise en charge des passeports, des cartes de séjour, et d'autres types de documents.
 
+# Prérequis
+
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
+
+* Python (version 3.10.10)
+* pip (version 23.0.1)
+
 # Installation
 
 1. Clonez ce dépôt sur votre machine locale :

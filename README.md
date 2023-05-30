@@ -134,19 +134,44 @@ L'API renverra une réponse JSON avec les informations suivantes :
 
 ```
 {
-  "data": [
-    "code_http",
-    "texte_ocr"
-  ],
-  "duration": durée
+  "http_code": 200|204,
+  "ocr_text": {
+    "document_id": "DOCUMENT_ID",
+    "first_name": "FIRST_NAME",
+    "last_name": "LAST_NAME",
+    "date_of_birth": "DATE_OF_BIRTH",
+    "place_of_birth": "PLACE_OF_BIRTH",
+    "father_name": "FATHER_NAME",
+    "mother_name": "MOTHER_NAME",
+    "profession": "PROFESSION",
+    "address": "ADDRESS",
+    "document_type": "DOCUMENT_TYPE",
+    "issue_date": "ISSUE_DATE",
+    "expiration_date": "EXPIRATION_DATE"
+  }
 }
 ```
 
-* "code_http" : Le code HTTP de la requête. Deux cas possibles :
-  * 200 : Indique qu'il s'agit bien d'une carte d'identité et que l'OCR a réussi à récupérer des informations.
-  * 204 : Indique qu'il ne s'agit pas d'une carte d'identité ou que la carte est illisible.
-* "texte_ocr" : Le texte extrait de l'image par l'OCR.
-* durée : Le nombre de secondes écoulées pour exécuter l'appel de la fonction.
+La réponse contient les champs suivants :
+
+* data (tableau) : Un tableau contenant un objet représentant les résultats de l'OCR. Les champs de cet objet comprennent :
+  * http_code (entier) : Le code HTTP indiquant le statut de la requête. Une valeur de 200 indique une requête réussie, tandis que 204 indique que le document scanné n'est pas une carte d'identité valide ou qu'il est illisible.
+  * ocr_text (objet) : Un objet contenant les informations extraites du processus OCR. Les champs de cet objet comprennent :
+    * document_id (chaîne de caractères) : L'identifiant du document.
+    * first_name (chaîne de caractères) : Le prénom du titulaire du document.
+    * last_name (chaîne de caractères) : Le nom de famille du titulaire du document.
+    * date_of_birth (chaîne de caractères) : La date de naissance du titulaire du document.
+    * place_of_birth (chaîne de caractères) : Le lieu de naissance du titulaire du document.
+    * father_name (chaîne de caractères) : Le nom du père du titulaire du document.
+    * mother_name (chaîne de caractères) : Le nom de la mère du titulaire du document.
+    * profession (chaîne de caractères) : La profession ou l'occupation du titulaire du document.
+    * address (chaîne de caractères) : L'adresse du titulaire du document.
+    * document_type (chaîne de caractères) : Le type du document (par exemple, CNI, passeport, carte de résidence, etc.).
+    * issue_date (chaîne de caractères) : La date de délivrance du document.
+    * expiration_date (chaîne de caractères) : La date d'expiration du document.
+
+Veuillez noter que si le code_http est 204, ce qui indique une requête non réussie, les valeurs de l'objet texte_ocr seront vides.
+
 
 Voici un exemple de réponse JSON avec un code HTTP 200 :
 

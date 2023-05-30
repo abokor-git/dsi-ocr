@@ -1,7 +1,0 @@
-python-doctr[torch]
-weasyprint
-rapidfuzz==2.14.0
-fastapi
-gradio==3.28.3
-numpy
-pandas

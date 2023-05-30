@@ -10,6 +10,26 @@ Cette application est une API qui permet de détecter du texte dans des images e
 
 > Note : Dans un futur proche, nous prévoyons d'ajouter la prise en charge des passeports, des cartes de séjour, et d'autres types de documents.
 
+# Installation
+
+1. Clonez ce dépôt sur votre machine locale :
+
+```
+git clone https://github.com/abokor-git/dsi-ocr.git
+```
+
+2. Accédez au répertoire du projet :
+
+```
+cd votre-repo
+```
+
+3. Installez les dépendances nécessaires :
+
+```
+pip install -r requirements.txt
+```
+
 # Utilisation
 
 L'API accepte une image au format PNG, JPEG ou BMP. Pour utiliser l'API, envoyez une requête avec l'image et l'API renverra le texte détecté dans l'image sous forme d'une réponse JSON.

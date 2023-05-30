@@ -21,7 +21,7 @@ git clone https://github.com/abokor-git/dsi-ocr.git
 2. Accédez au répertoire du projet :
 
 ```
-cd votre-repo
+cd dsi-ocr
 ```
 
 3. Installez les dépendances nécessaires :
@@ -32,18 +32,16 @@ pip install -r requirements.txt
 
 # Utilisation
 
-## Locale
-
 1. Démarrez l'application FastAPI :
 
 ```
-python main.py
+uvicorn api:app --port 8016
 ```
 
 2. Accédez à l'interface utilisateur en ouvrant votre navigateur et en vous rendant à l'adresse suivante :
 
 ```
-http://localhost:8000/gradio/
+http://localhost:8016/gradio
 ```
 
 3. Unploader une image de carte d'identité djiboutienne d'avant-dernière génération.
@@ -52,7 +50,61 @@ http://localhost:8000/gradio/
 
 5. Les résultats OCR seront affichés sur la page.
 
-## Docker
+# Déploiement avec Docker
+
+Vous avez deux options pour déployer l'application à l'aide de Docker : construire l'image localement à partir du Dockerfile ou télécharger l'image préconstruite depuis DockerHub.
+
+## Option 1 : Construire l'image localement
+
+Assurez-vous d'avoir Docker installé sur votre machine avant de suivre ces étapes :
+
+1. Assurez-vous d'être dans le répertoire principal du projet où se trouve le fichier Dockerfile.
+
+2. Construisez l'image Docker en exécutant la commande suivante :
+
+```
+docker build -t nom_de_votre_image .
+```
+
+3. Une fois que la construction de l'image est terminée, exécutez un conteneur à partir de l'image :
+
+```
+docker run -p 8016:8016 nom_de_votre_image
+```
+
+4. Accédez à l'interface utilisateur en ouvrant votre navigateur et en vous rendant à l'adresse suivante :
+
+```
+http://localhost:8016/gradio
+```
+
+5. Vous pouvez maintenant unploader une image de carte d'identité djiboutienne d'avant-dernière génération et effectuer l'OCR en utilisant l'application.
+
+## Option 2 : Télécharger l'image depuis DockerHub
+
+1. Exécutez la commande suivante pour télécharger l'image préconstruite depuis DockerHub :
+
+```
+docker pull dsi-ocr:latest
+```
+
+2. Une fois le téléchargement terminé, exécutez un conteneur à partir de l'image :
+
+```
+docker run -p 8016:8016 dsi-ocr:latest
+```
+
+3. Accédez à l'interface utilisateur en ouvrant votre navigateur et en vous rendant à l'adresse suivante :
+
+```
+http://localhost:8016/gradio
+```
+
+4. Vous pouvez maintenant télécharger une image de carte d'identité djiboutienne d'avant-dernière génération et effectuer l'OCR en utilisant l'application.
+
+N'hésitez pas à choisir l'option qui convient le mieux à vos besoins. Assurez-vous d'avoir des connaissances de base sur Docker pour une utilisation appropriée.
+
+--azeazeaz--
 
 L'API accepte une image au format PNG, JPEG ou BMP. Pour utiliser l'API, envoyez une requête avec l'image et l'API renverra le texte détecté dans l'image sous forme d'une réponse JSON.
 

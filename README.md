@@ -32,6 +32,28 @@ pip install -r requirements.txt
 
 # Utilisation
 
+## Locale
+
+1. Démarrez l'application FastAPI :
+
+```
+python main.py
+```
+
+2. Accédez à l'interface utilisateur en ouvrant votre navigateur et en vous rendant à l'adresse suivante :
+
+```
+http://localhost:8000/gradio/
+```
+
+3. Unploader une image de carte d'identité djiboutienne d'avant-dernière génération.
+
+4. Cliquez sur le bouton "Soumettre" pour lancer le processus OCR.
+
+5. Les résultats OCR seront affichés sur la page.
+
+## Docker
+
 L'API accepte une image au format PNG, JPEG ou BMP. Pour utiliser l'API, envoyez une requête avec l'image et l'API renverra le texte détecté dans l'image sous forme d'une réponse JSON.
 
 Pour exécuter l'application, vous pouvez utiliser Docker ou exécuter le script Python api.py directement sur votre machine. Si vous utilisez Docker, vous pouvez créer l'image Docker en exécutant la commande suivante à partir du répertoire racine du projet :

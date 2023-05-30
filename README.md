@@ -235,8 +235,16 @@ Si le code HTTP retourné est 204, cela indique qu'il ne s'agit pas d'une carte 
 }
 ```
 
+# Auteurs
+
+* Abokor Ahmed-Kadar Nour
+
 # Contact
 
 N'hésitez pas à nous contacter si vous avez des questions ou des commentaires.
 
 Mail : abokor.ahmed.kadar.nour@outlook.com
+
+# Licence
+
+Ce projet est sous licence MIT.

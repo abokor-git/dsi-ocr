@@ -130,6 +130,21 @@ curl -X POST -H "Content-Type: application/json" -d '{"data": ["data:image/png;b
 
 ## Réponse de l'API
 
+L'API renverra une réponse JSON avec les informations suivantes :
+
+```
+{
+  "data": [
+    "code_http",
+    "texte_ocr"
+  ],
+  "duration": durée
+}
+```
+
+* "code_http" : Le code HTTP de la requête. Deux cas possibles :
+  * 200 : Indique qu'il s'agit bien d'une carte d'identité et que 
+
 # Contact
 
 N'hésitez pas à nous contacter si vous avez des questions ou des commentaires.

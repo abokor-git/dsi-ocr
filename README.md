@@ -2,6 +2,14 @@
 
 Cette application est une API qui permet de détecter du texte dans des images en utilisant un modèle de machine learning entraîné pour cette tâche. Elle est basée sur la bibliothèque DocTr, FastAPI et l'interface utilisateur Gradio pour une utilisation facile et intuitive.
 
+# Fonctionnalités
+
+* Reconnaissance optique des caractères (OCR) sur les cartes d'identité djiboutiennes.
+* Prise en charge des cartes d'identité djiboutiennes d'avant-dernière génération.
+* Interface utilisateur conviviale avec Gradio pour télécharger et afficher les résultats.
+
+> Note : Dans un futur proche, nous prévoyons d'ajouter la prise en charge des passeports, des cartes de séjour, et d'autres types de documents.
+
 # Utilisation
 
 L'API accepte une image au format PNG, JPEG ou BMP. Pour utiliser l'API, envoyez une requête avec l'image et l'API renverra le texte détecté dans l'image sous forme d'une réponse JSON.

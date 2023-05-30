@@ -143,7 +143,12 @@ L'API renverra une réponse JSON avec les informations suivantes :
 ```
 
 * "code_http" : Le code HTTP de la requête. Deux cas possibles :
-  * 200 : Indique qu'il s'agit bien d'une carte d'identité et que 
+  * 200 : Indique qu'il s'agit bien d'une carte d'identité et que l'OCR a réussi à récupérer des informations.
+  * 204 : Indique qu'il ne s'agit pas d'une carte d'identité ou que la carte est illisible.
+* "texte_ocr" : Le texte extrait de l'image par l'OCR.
+* durée : Le nombre de secondes écoulées pour exécuter l'appel de la fonction.
+
+Voici un exemple de réponse JSON avec un code HTTP 200 :
 
 # Contact
 

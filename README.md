@@ -237,7 +237,7 @@ Si le code HTTP retourné est 204, cela indique qu'il ne s'agit pas d'une carte 
 
 # Auteurs
 
-* Abokor Ahmed-Kadar Nour
+* Abokor Ahmed-Kadar Nour - Djibouti Télécom . DSI
 
 # Contact
 
